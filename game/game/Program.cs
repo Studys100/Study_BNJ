@@ -3,6 +3,15 @@ using System.Threading;
 
 namespace Program
 {
+    public class Program
+    {
+        public static void Main()
+        {
+            Crazy game = new Crazy();
+            game.Run();
+        }
+    }
+
     public class Crazy
     {
         public void Run()
@@ -87,68 +96,55 @@ namespace Program
             if (select == "1")
             {
                 Console.WriteLine("맵을 선택해주세요!");
+                //맵을 선택시 맵 고르기
+                Console.WriteLine();
+                Console.WriteLine("맵을 선택해주세요!");
+
+                Console.WriteLine("1. 팩토리 \t 2. 무덤 \t 3. 캠프 \t 4. 나가기");
+                select = Console.ReadLine();
+
+                if (select == "1")
+                {
+                    Console.WriteLine("팩토리에 진입합니다!");
+
+                }
+                else if (select == "2")
+                {
+                    Console.WriteLine("무덤에 진입합니다!");
+
+                }
+                else if (select == "3")
+                {
+                    Console.WriteLine("캠프에 진입합니다.!");
+                }
+                else if (select == "4")
+                {
+                    Console.WriteLine("상점에서 나갑니다.");
+                }
             }
             else if (select == "2")
             {
                 Console.WriteLine("상점에 진입합니다!");
-            }
+                //상점 선택시
+                Console.WriteLine();
+                Console.WriteLine("무기를 고르세요!");
 
+                Console.WriteLine("1. 물풍선 \t 2. 바늘 \t 3. 방패 \t 4. 나가기");
+                select = Console.ReadLine();
+                if (select == "1")
+                {
+                    Console.WriteLine("물풍선을 구입하셨습니다!");
 
-            //맵을 선택시 맵 고르기
+                }
+                else if (select == "2")
+                {
+                    Console.WriteLine("바늘을 구입하셨습니다!");
 
-            Console.WriteLine();
-            Console.WriteLine("맵을 선택해주세요!");
-
-            Console.WriteLine("1. 팩토리 \t 2. 무덤 \t 3. 캠프");
-            select = Console.ReadLine();
-
-
-            if (select == "1")
-            {
-                player = "팩토리";
-                Console.WriteLine("팩토리에 진입합니다!");
-
-            }
-            else if (select == "2")
-            {
-                player = "무덤";
-                Console.WriteLine("무덤에 진입합니다!");
-
-            }
-            else if (select == "3")
-            {
-                player = "캠프";
-                Console.WriteLine("캠프에 진입합니다.!");
-
-            }
-
-
-            //상점 선택시 
-
-            Console.WriteLine();
-            Console.WriteLine("무기를 고르세요!");
-
-            Console.WriteLine("1. 물풍선 \t 2. 바늘 \t 3. 방패");
-            select = Console.ReadLine();
-
-
-            if (select == "1")
-            {
-                player = "물풍선";
-                Console.WriteLine("물풍선을 구입하셨습니다!");
-
-            }
-            else if (select == "2")
-            {
-                player = "바늘";
-                Console.WriteLine("바늘을 구입하셨습니다!");
-
-            }
-            else if (select == "3")
-            {
-                player = "방패";
-                Console.WriteLine("방패를 구입하셨습니다!");
-
+                }
+                else if (select == "3")
+                {
+                    Console.WriteLine("방패를 구입하셨습니다!");
+                }
             }
         }
     }
