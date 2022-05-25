@@ -37,7 +37,7 @@ namespace Program
 
             
 
-                // 유저는 체력, 물풍선, 속도를 갖고, 캐릭터별로 조금씩 다르다!
+            // 유저는 체력, 물풍선, 속도를 갖고, 캐릭터별로 조금씩 다르다!
 
                 int hp = 10;
                 int waterstr = 0;
@@ -45,7 +45,7 @@ namespace Program
                 string player = "캐릭터";
 
 
-                // 캐릭터 마다 가지고 있는 능력이 다르다.
+            // 캐릭터 마다 가지고 있는 능력이 다르다.
 
                 Console.WriteLine("크레이지 아케이드에 온걸 환영합니다~!");
                 Console.WriteLine();
@@ -83,22 +83,23 @@ namespace Program
 
             
 
-                // 유저 능력치
-
+           // 유저 능력치
 
                 Thread.Sleep(1000);
                 Console.WriteLine();
+
                 Console.WriteLine("--- User Status ---");
                 Console.WriteLine();
 
-                Console.WriteLine("캐릭터 : " + player);
-                Console.WriteLine("HP : " + hp);
-                Console.WriteLine("waterstr : " + waterstr);
-                Console.WriteLine("Speed : " + speed);
+                Console.WriteLine("\n 캐릭터 : " + player);
+                Console.WriteLine("\n HP : " + hp);
+                Console.WriteLine("\n waterstr : " + waterstr);
+                Console.WriteLine("\n Speed : " + speed);
 
-            
+                Thread.Sleep(2000);
 
-            
+
+
         }
            public void Back()
             {
