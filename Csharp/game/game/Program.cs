@@ -7,15 +7,35 @@ namespace Program
     {
         public static void Main()
         {
+
+            // 이 함수가 가장 먼저
             Crazy game = new Crazy();
+            game.userID = "난주";
+            game.DrawUserInfo();
+
             game.Run();
             game.Back();
           
         }
     }
 
+    // 싱글톤 패턴, 프로그램 상에 하나만 존재하는 것
+    // 크아를 실행 함, 크아 창이 뜬게 됨
     public class Crazy
     {
+        public string userID;
+        public static Crazy instance;
+
+        public Crazy()
+        {
+            instance = this;
+        }
+
+        public void DrawUserInfo()
+        {
+            Console.WriteLine(" user id : "+ userID);
+        }
+
         public void Run()
         {
             // 크아 실행
@@ -101,14 +121,18 @@ namespace Program
 
 
         }
-           public void Back()
-            {
+
+        // 자기 함수 안에서 자기 함수를 호출하는 것을 재귀라고 함
+        public void Back()
+        {
 
             // 유저의 선택을 제공
 
-            
+
             Console.WriteLine();
             Console.Clear();
+
+            Crazy.instance.DrawUserInfo();
 
             Console.WriteLine("무엇을 할것인가요?");
             Console.WriteLine();
@@ -124,10 +148,10 @@ namespace Program
                 Console.Clear();
                 Console.WriteLine("맵을 선택해주세요!");
                 Console.WriteLine();
-                
+
 
                 Console.WriteLine("1. 팩토리 \t 2. 무덤 \t 3. 캠프 \t 4. 나가기");
-                
+
                 select = Console.ReadLine();
 
                 if (select == "1")
@@ -137,34 +161,33 @@ namespace Program
                 }
                 else if (select == "2")
                 {
-                   Console.WriteLine("무덤에 진입합니다!");
+                    Console.WriteLine("무덤에 진입합니다!");
 
                 }
                 else if (select == "3")
                 {
 
-                   Console.WriteLine("캠프에 진입합니다.!");
-                 }
+                    Console.WriteLine("캠프에 진입합니다.!");
+                }
                 else if (select == "4")
                 {
+                    
+                    Crazy.instance.Back();
+                    Crazy.instance.DrawUserInfo();
+                }
 
-                    Crazy game = new Crazy();
-                    game.Back();
-                 
-                 }
-                
             }
-                 else if (select == "2")
-                 {
-                   //상점 선택시
-                     Console.WriteLine("상점에 진입합니다!");
-                     Console.Clear();
+            else if (select == "2")
+            {
+                //상점 선택시
+                Console.WriteLine("상점에 진입합니다!");
+                Console.Clear();
 
-                     Console.WriteLine("무기를 고르세요!");
-                     Console.WriteLine();
+                Console.WriteLine("무기를 고르세요!");
+                Console.WriteLine();
 
-                     Console.WriteLine("1. 물풍선 \t 2. 바늘 \t 3. 방패 \t 4. 나가기");
-                     select = Console.ReadLine();
+                Console.WriteLine("1. 물풍선 \t 2. 바늘 \t 3. 방패 \t 4. 나가기");
+                select = Console.ReadLine();
 
                 if (select == "1")
                 {
@@ -184,15 +207,15 @@ namespace Program
                 else if (select == "4")
                 {
                     Console.WriteLine("상점에서 나갔습니다!");
+                    Crazy.instance.DrawUserInfo();
+                    Crazy.instance.Back(); // 재귀 함수
 
-                    Crazy game = new Crazy();
-                    game.Back();
-
+                    Thread.Sleep(1000);
                 }
-                 }
-            
             }
-      
-        
+
+        }
+
+
     }
 }
